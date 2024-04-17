@@ -26,4 +26,5 @@ jobs:
           token: "${{ secrets.GITHUB_TOKEN }}" # optional
       - name: Package
         run: |-
+          ls -lsah
           helm package .
