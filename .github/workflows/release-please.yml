@@ -17,3 +17,13 @@ jobs:
         with:
           release-type: helm
           package-name: helm-release
+      - name: Helm tool installer
+        uses: Azure/setup-helm@v3.5
+        with:
+          # Version of helm
+          version: latest # default is latest
+          # GitHub token. Required only if 'version' == 'latest'
+          token: "${{ secrets.GITHUB_TOKEN }}" # optional
+      - name: Package
+        run: |-
+          helm package .
